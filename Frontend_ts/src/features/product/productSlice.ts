@@ -6,7 +6,7 @@ import ProductTypes from '../../models/Productmodels';
 // APİ  uçları  
 //http://localhost:5000/products?page=2
 //http://localhost:5000/products
-//http://localhost:5000/3
+//http://localhost:5000/product/3
 
 //const API_BAGLANTISI = "http://localhost:5000/products?page=";
 
@@ -56,8 +56,11 @@ const productsSlice = createSlice({
                         //console.log(action.payload.products)
                               if(state.product != null) {
                                     state.product = [...state.product,...action.payload.products];
+                                    console.log("çalıştı")
                               }else{
+                                    state.product = [];
                                     state.product = [...action.payload.products];
+                                    console.log("çalıştı2")
                               }
                         
                         state.status ="succeeded";

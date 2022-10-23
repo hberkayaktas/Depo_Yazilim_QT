@@ -22,7 +22,7 @@ const  Home:React.FC =() => {
         } , [dispatch]);
 
 
-      const   handleScroll = () => {
+      const handleScroll = () => {
         // console.log("Height:", document.documentElement.scrollHeight);
         // console.log("Top:", document.documentElement.scrollTop);
         // console.log("Window:", window.innerHeight);
@@ -33,10 +33,11 @@ const  Home:React.FC =() => {
           window.innerHeight + document.documentElement.scrollTop +1 >=
           document.documentElement.scrollHeight 
         ){
-          if(hasNextPage && !loading ){
+          if(hasNextPage && !loading && status !== "loading"){
             console.log(hasNextPage,nextPage)
             dispatch(fetchProducts(nextPage))
             setLoading(true);
+            
           }
           
           
